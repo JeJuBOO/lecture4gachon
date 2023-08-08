@@ -5,16 +5,16 @@ import os
 import numpy as np
 
 import torch
-from torchvision import models
+from torchvision.models import detection
 from torchvision.transforms import functional as F
 from torchvision.utils import draw_bounding_boxes
 
 detection_models = {
-    "fasterrcnn_mobilenet_v3_large_320_fpn": models.detection.fasterrcnn_mobilenet_v3_large_320_fpn,
-    "fasterrcnn_mobilenet_v3_large_fpn": models.detection.fasterrcnn_mobilenet_v3_large_fpn, 
-    "fasterrcnn_resnet50_fpn": models.detection.fasterrcnn_resnet50_fpn, 
-    "retinanet_resnet50_fpn": models.detection.retinanet_resnet50_fpn, 
-    "ssdlite320_mobilenet_v3_large": models.detection.ssdlite320_mobilenet_v3_large
+    "fasterrcnn_mobilenet_v3_large_320_fpn": detection.fasterrcnn_mobilenet_v3_large_320_fpn,
+    "fasterrcnn_mobilenet_v3_large_fpn": detection.fasterrcnn_mobilenet_v3_large_fpn, 
+    "fasterrcnn_resnet50_fpn": detection.fasterrcnn_resnet50_fpn, 
+    "retinanet_resnet50_fpn": detection.retinanet_resnet50_fpn, 
+    "ssdlite320_mobilenet_v3_large": detection.ssdlite320_mobilenet_v3_large
 }
 
 COCO_INSTANCE_CATEGORY_NAMES = [
@@ -32,15 +32,15 @@ COCO_INSTANCE_CATEGORY_NAMES = [
     'clock', 'vase', 'scissors', 'teddy bear', 'hair drier', 'toothbrush'
 ]
 
-INSTANCE_CATEGORY_COLORS = [tuple(np.random.randint(0, 150, (3))) for _ in COCO_INSTANCE_CATEGORY_NAMES]
+INSTANCE_CATEGORY_COLORS = [tuple(np.random.randint(0, 254, (3))) for _ in COCO_INSTANCE_CATEGORY_NAMES]
 
 def predict(image, model_name, threshold):
-    model = detection_models[model_name](pretrained=True, progress=False)
+    model = detection_models[model_name](weights=True, progress=False)
     model.eval()
     
     image = np.array(image)
     
-    tensor = torch.Tensor(image).type(torch.uint8).permute(2,0,1)
+    image = torch.Tensor(image).type(torch.uint8).permute(2,0,1)
     tensor = image.unsqueeze(0)/255.
     
     with torch.no_grad():
@@ -66,7 +66,7 @@ gr.Interface(
             fn=predict, 
             inputs=[
                 gr.Image(type="pil"), 
-                gr.Dropdown(detection_models.keys()),
+                gr.Dropdown(detection_models.keys(), value="fasterrcnn_mobilenet_v3_large_320_fpn"),
                 gr.Slider(0, 1, value=0.6, step=0.1)
                 ],
             outputs=gr.Image(type="pil"),

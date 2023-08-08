@@ -33,7 +33,7 @@ COCO_INSTANCE_CATEGORY_NAMES = [
     'clock', 'vase', 'scissors', 'teddy bear', 'hair drier', 'toothbrush'
 ]
 
-INSTANCE_CATEGORY_COLORS = [tuple(np.random.randint(0, 150, (3))) for _ in COCO_INSTANCE_CATEGORY_NAMES]
+INSTANCE_CATEGORY_COLORS = [tuple(np.random.randint(0, 254, (3))) for _ in COCO_INSTANCE_CATEGORY_NAMES]
 
 st.sidebar.title(f"Detection Model Test")
 
