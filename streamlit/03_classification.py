@@ -23,7 +23,7 @@ with open("imagenet_class_index.json", "r") as f:
     
 model_name = st.selectbox('Select Model', available_models)
 
-model = model = timm.create_model(model_name, pretrained=True)
+model = timm.create_model(model_name, pretrained=True)
 model.eval()
 
 uploaded_file = st.file_uploader("Choose a Image")

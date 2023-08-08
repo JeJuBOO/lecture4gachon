@@ -7,9 +7,8 @@ def greet(name, is_morning):
     return greeting
 
 
-iface = gr.Interface(
+gr.Interface(
     fn=greet,
     inputs=["text", "checkbox"],
     outputs=["text"],
-)
-iface.launch()
+).launch()
