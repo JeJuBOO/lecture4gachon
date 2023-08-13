@@ -24,7 +24,7 @@ def predict_torch(img):
     top_n_preds = top_n_preds[0]
 
     finalResult = top_n_preds[np.argsort(-classes[:, top_n_preds])]
-    print(classes)
+    # print(classes)
     return {'prediction': [
         {'classname': classes_name[str(finalResult[0, 1])][1], 'possibility': classes[0, finalResult[0, 1]] * 100},
         {'classname': classes_name[str(finalResult[0, 2])][1], 'possibility': classes[0, finalResult[0, 2]] * 100},
