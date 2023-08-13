@@ -6,3 +6,9 @@ conda create -n streamlit python=3.10
 conda activate streamlit
 pip install Pillow torch torchvision timm streamlit
 ```
+
+## Start Demo
+```bash
+streamlit run {Python Script name}
+#ex) streamlit run 01_example.py
+```

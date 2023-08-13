@@ -42,7 +42,7 @@ def predict(image, model_name):
     return img_with_all_masks
 
 img_file_format = ["jpg", "jpeg", "png", "bmp", "tif", "tiff"]
-example_root = "../test_img"
+example_root = "test_img"
 example_img_list = [[os.path.join(example_root, file)] for file in os.listdir(example_root) if file.split(".")[-1].lower() in img_file_format]
 
 gr.Interface(
@@ -50,7 +50,7 @@ gr.Interface(
             fn=predict, 
             inputs=[
                 gr.Image(type="pil"),
-                gr.Dropdown(list(segmentation_models.keys())),
+                gr.Dropdown(list(segmentation_models.keys()), value="deeplabv3_mobilenet_v3_large"),
                 ], 
             outputs=gr.Image(type="pil"),
             examples= example_img_list,

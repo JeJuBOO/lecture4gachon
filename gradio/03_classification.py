@@ -30,7 +30,7 @@ def predict(image, model_name):
     return confidences
 
 img_file_format = ["jpg", "jpeg", "png", "bmp", "tif", "tiff"]
-example_root = "../test_img"
+example_root = "test_img"
 example_img_list = [[os.path.join(example_root, file), ] for file in os.listdir(example_root) if file.split(".")[-1].lower() in img_file_format]
 
 gr.Interface(

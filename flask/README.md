@@ -1,8 +1,5 @@
 # Python과 Flask를 이용한 REST API 만들기
 
-## Setup
-``` bash
-conda create -n flask python=3.10
-conda activate flask
-pip install Flask Pillow torch torchvision torchaudio
-```
+## 1. 간단한 Classification REST API 만들기
+
+## 2. Style transfer 웹 페이지 만들기

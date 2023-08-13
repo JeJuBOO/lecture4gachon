@@ -1,5 +1,5 @@
-# Style Transfer Web
-Style transfer application using flask and TF Hub
+# Style transfer 웹 사이트 만들기
+
 ![example](figs/style_transfer.png)
 
 ## Running locally

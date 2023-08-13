@@ -51,8 +51,8 @@ if uploaded_file:
     image = Image.open(BytesIO(bytes_data)).convert("RGB")
     image = np.array(image)
     
-    tensor = torch.Tensor(image).type(torch.uint8).permute(2,0,1)
-    tensor = tensor.unsqueeze(dim=0)/255.
+    image = torch.Tensor(image).type(torch.uint8).permute(2,0,1)
+    tensor = image.unsqueeze(dim=0)/255.
     
     with torch.no_grad():
         prediction = model(tensor)[0]
