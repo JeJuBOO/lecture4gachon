@@ -11,7 +11,7 @@ git clone https://github.com/jjerry-k/stylet_transfer_web.git
 ```
 2. Create and Activate virtual environment
 ```bash
-conda create -n style_transfer python=3.10
+conda create -n style_transfer python=3.11
 conda activate style_transfer
 ```
 

@@ -1,5 +1,6 @@
+# %%
 import numpy as np
-
+from matplotlib import pyplot as plt
 # Create array
 x1 = np.random.randint(10, size=6)  # One-dimensional array
 x2 = np.random.randint(10, size=(3, 4))  # Two-dimensional array
@@ -101,5 +102,15 @@ left, right = np.hsplit(grid, [2])
 print(left)
 print(right)
 
+# np.ones(4), np.ones((4, 4))
+# np.zeros(4), np.zeros((4, 4))
+# np.random.randint(0, 5, 4), np.random.randint(0, 5, (4, 4))
+# np.random.rand(4), np.random.rand(4, 4), plt.hist(np.random.rand(1000))
+# np.random.randn(4), np.random.randn(4, 4), plt.hist(np.random.randn(1000))
 
-from matplotlib import pyplot as plt
+
+# %% 
+x = np.arange(10)
+y = 2*x + 1
+plt.plot(x, y, ".- ")
+# %%

@@ -2,7 +2,7 @@
 
 ## Setup
 ``` bash
-conda create -n gradio python=3.10
+conda create -n gradio python=3.11
 conda activate gradio
 pip install Pillow torch torchvision timm pandas matplotlib gradio
 ```

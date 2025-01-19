@@ -2,7 +2,7 @@
 
 ## Setup
 ``` bash
-conda create -n streamlit python=3.10
+conda create -n streamlit python=3.11
 conda activate streamlit
 pip install Pillow torch torchvision timm streamlit
 ```
